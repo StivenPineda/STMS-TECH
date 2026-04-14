@@ -1,0 +1,208 @@
+/* =============================================================
+   animations.css — Keyframes y Clases de Animación
+   STMS Tech Landing Page
+   ============================================================= */
+
+/* ── Accesibilidad: respeta preferencia de movimiento reducido ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   1. fadeInUp — entrada suave desde abajo
+   ───────────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   2. fadeIn — aparición simple
+   ───────────────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   3. neonPulse — pulso suave del glow cian (tarjetas idle)
+   ───────────────────────────────────────────────────────────── */
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(0, 242, 255, 0.2),
+                0 0 20px rgba(0, 242, 255, 0.08);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(0, 242, 255, 0.45),
+                0 0 40px rgba(0, 242, 255, 0.18);
+  }
+}
+
+@keyframes neonPulseViolet {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(112, 0, 255, 0.2),
+                0 0 20px rgba(112, 0, 255, 0.08);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(112, 0, 255, 0.45),
+                0 0 40px rgba(112, 0, 255, 0.18);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   4. gradientShift — movimiento del gradiente en el Hero title
+   ───────────────────────────────────────────────────────────── */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   5. laserScan — barrido láser vertical sobre tarjetas QA
+      Se aplica al ::after de .bento-card--violet
+      La línea viaja de arriba a abajo y se desvanece al llegar
+   ───────────────────────────────────────────────────────────── */
+@keyframes laserScan {
+  0%           { top: -2px;           opacity: 0; }
+  6%           { top: -2px;           opacity: 1; }
+  90%          { top: calc(100% + 2px); opacity: 1; }
+  100%         { top: calc(100% + 2px); opacity: 0; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   6. ledPulse — parpadeo del punto LED verde en el Hero status
+      Simula una luz piloto viva (blink + ring de expansión)
+   ───────────────────────────────────────────────────────────── */
+@keyframes ledPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.75);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+    opacity: 0.85;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   7. typingDot — puntos de "el bot está escribiendo..."
+      Los tres puntos se levantan escalonados (ver components.css)
+   ───────────────────────────────────────────────────────────── */
+@keyframes typingDot {
+  0%, 80%, 100% { transform: translateY(0);    opacity: 0.35; }
+  40%           { transform: translateY(-5px); opacity: 1;    }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   8. fabEntrance — el FAB de WhatsApp/Chat entra desde la esquina
+   ───────────────────────────────────────────────────────────── */
+@keyframes fabEntrance {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Hamburger — animación X al abrir (JS añade .open)
+   ───────────────────────────────────────────────────────────── */
+.navbar__hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar__hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar__hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Scroll Reveal — clase base / visible
+   IntersectionObserver añade .visible desde main.js
+   ───────────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--delay-1 { transition-delay: 0.10s; }
+.reveal--delay-2 { transition-delay: 0.20s; }
+.reveal--delay-3 { transition-delay: 0.30s; }
+.reveal--delay-4 { transition-delay: 0.40s; }
+
+/* ─────────────────────────────────────────────────────────────
+   Animaciones de entrada del Hero (carga inicial)
+   ───────────────────────────────────────────────────────────── */
+.hero__tag {
+  animation: fadeInUp 0.7s ease both;
+  animation-delay: 0.05s;
+}
+
+.hero__status {
+  animation: fadeInUp 0.7s ease both;
+  animation-delay: 0.15s;
+}
+
+.hero__title {
+  animation: fadeInUp 0.7s ease both;
+  animation-delay: 0.28s;
+}
+
+.hero__subtitle {
+  animation: fadeInUp 0.7s ease both;
+  animation-delay: 0.42s;
+}
+
+.hero__ctas {
+  animation: fadeInUp 0.7s ease both;
+  animation-delay: 0.56s;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Gradiente animado en el título del Hero
+   ───────────────────────────────────────────────────────────── */
+.highlight-cyan {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Neon pulse idle — tarjetas Bento en reposo
+   ───────────────────────────────────────────────────────────── */
+.bento-card:not(:hover) {
+  animation: neonPulse 4s ease-in-out infinite;
+}
+
+.bento-card--violet:not(:hover) {
+  animation: neonPulseViolet 4s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Transiciones globales de interacción
+   ───────────────────────────────────────────────────────────── */
+a, button, .btn, .bento-card, .metric-card,
+.social-icon, .nav-link, .footer__link, .lang-btn {
+  transition-property: color, background, border-color,
+                        box-shadow, transform, opacity;
+  transition-duration: var(--transition-base);
+  transition-timing-function: ease;
+}

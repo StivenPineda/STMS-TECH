@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 56" fill="none" role="img" aria-label="STMS Tech">
+  <defs>
+    <!-- Gradiente principal cian → violeta (texto + ícono) -->
+    <linearGradient id="gMain" x1="0" y1="0" x2="280" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#00d4ff"/>
+      <stop offset="45%"  stop-color="#6a8cff"/>
+      <stop offset="100%" stop-color="#7000ff"/>
+    </linearGradient>
+    <!-- Gradiente diagonal para el ícono hexagonal -->
+    <linearGradient id="gHex" x1="4" y1="4" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#00f2ff"/>
+      <stop offset="60%"  stop-color="#5b6cf5"/>
+      <stop offset="100%" stop-color="#7000ff"/>
+    </linearGradient>
+    <!-- Filtro de glow suave -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ═══ ÍCONO HEXAGONAL ═══ -->
+  <!-- Hexágono exterior -->
+  <path d="M28 5 L49 5 L60 24 L49 43 L28 43 L17 24 Z"
+    stroke="url(#gHex)" stroke-width="2.2" fill="none"
+    stroke-linejoin="round" filter="url(#glow)"/>
+
+  <!-- Hexágono interior -->
+  <path d="M31 11 L46 11 L54 24 L46 37 L31 37 L23 24 Z"
+    stroke="url(#gHex)" stroke-width="1.6" fill="none"
+    stroke-linejoin="round" opacity="0.75"/>
+
+  <!-- Nodo central con conexiones (simulando circuito) -->
+  <circle cx="38.5" cy="24" r="4.5" fill="url(#gHex)" filter="url(#glow)"/>
+  <!-- Líneas de circuito internas -->
+  <line x1="38.5" y1="19.5" x2="38.5" y2="13"  stroke="#00d4ff" stroke-width="1.2" opacity="0.6"/>
+  <line x1="38.5" y1="28.5" x2="38.5" y2="35"  stroke="#7000ff" stroke-width="1.2" opacity="0.6"/>
+  <line x1="34.5" y1="24"   x2="27"   y2="24"  stroke="#5b6cf5" stroke-width="1.2" opacity="0.5"/>
+  <line x1="42.5" y1="24"   x2="50"   y2="24"  stroke="#5b6cf5" stroke-width="1.2" opacity="0.5"/>
+  <!-- Puntos en extremos de circuito -->
+  <circle cx="38.5" cy="12.5" r="1.8" fill="#00f2ff" opacity="0.85"/>
+  <circle cx="38.5" cy="35.5" r="1.8" fill="#7000ff" opacity="0.85"/>
+  <circle cx="26"   cy="24"   r="1.5" fill="#5b6cf5" opacity="0.7"/>
+  <circle cx="51"   cy="24"   r="1.5" fill="#5b6cf5" opacity="0.7"/>
+
+  <!-- ═══ TEXTO ═══ -->
+  <!-- "STMS" — bold, gradiente -->
+  <text x="74" y="36"
+    font-family="'Space Grotesk','Arial Black',Arial,sans-serif"
+    font-weight="800"
+    font-size="28"
+    letter-spacing="-0.8"
+    fill="url(#gMain)"
+    filter="url(#glow)">STMS</text>
+
+  <!-- "Tech" — regular, mismo gradiente, ligeramente más pequeño -->
+  <text x="179" y="36"
+    font-family="'Space Grotesk',Arial,sans-serif"
+    font-weight="400"
+    font-size="26"
+    letter-spacing="0.5"
+    fill="url(#gMain)"
+    opacity="0.9">Tech</text>
+</svg>

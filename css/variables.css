@@ -1,0 +1,108 @@
+/* =============================================================
+   variables.css — Design Tokens for STMS Tech
+   Paleta Soft Neon Tech: fondo oscuro + acentos cian y violeta
+   ============================================================= */
+
+:root {
+  /* ── Colores Base ── */
+  --bg-primary:    #0f172a;
+  --bg-secondary:  #141e35;
+  --bg-surface:    #1e293b;
+
+  /* ── Texto ── */
+  --text-primary:  #f8fafc;
+  --text-secondary:#94a3b8;
+  --text-muted:    #475569;
+
+  /* ── Neón: Desarrollo Web (Cian) ── */
+  --neon-cyan:         #00f2ff;
+  --neon-cyan-dim:     rgba(0, 242, 255, 0.15);
+  --neon-cyan-mid:     rgba(0, 242, 255, 0.35);
+  --glow-cyan:         0 0 12px rgba(0, 242, 255, 0.45),
+                       0 0 32px rgba(0, 242, 255, 0.18);
+  --glow-cyan-strong:  0 0 20px rgba(0, 242, 255, 0.65),
+                       0 0 50px rgba(0, 242, 255, 0.28);
+
+  /* ── Neón: Testing / QA (Violeta) ── */
+  --neon-violet:       #7000ff;
+  --neon-violet-dim:   rgba(112, 0, 255, 0.15);
+  --neon-violet-mid:   rgba(112, 0, 255, 0.35);
+  --glow-violet:       0 0 12px rgba(112, 0, 255, 0.45),
+                       0 0 32px rgba(112, 0, 255, 0.18);
+  --glow-violet-strong:0 0 20px rgba(112, 0, 255, 0.65),
+                       0 0 50px rgba(112, 0, 255, 0.28);
+
+  /* ── Neón: Live Status (Verde) ── */
+  --neon-green:        #22c55e;
+  --neon-green-dim:    rgba(34, 197, 94, 0.15);
+  --glow-green:        0 0 8px rgba(34, 197, 94, 0.6),
+                       0 0 20px rgba(34, 197, 94, 0.25);
+
+  /* ── WhatsApp ── */
+  --whatsapp-green:    #25D366;
+  --whatsapp-green-dim:rgba(37, 211, 102, 0.18);
+  --glow-whatsapp:     0 0 16px rgba(37, 211, 102, 0.5),
+                       0 0 36px rgba(0, 242, 255, 0.2);
+
+  /* ── Gradientes ── */
+  --gradient-neon:     linear-gradient(135deg, #00f2ff 0%, #7000ff 100%);
+  --gradient-neon-alt: linear-gradient(135deg, #7000ff 0%, #00f2ff 100%);
+  --gradient-bg-hero:  radial-gradient(ellipse at 30% 50%,
+                         rgba(0, 242, 255, 0.06) 0%,
+                         transparent 60%),
+                       radial-gradient(ellipse at 70% 30%,
+                         rgba(112, 0, 255, 0.08) 0%,
+                         transparent 55%);
+
+  /* ── Glassmorphism ── */
+  --glass-bg:          rgba(255, 255, 255, 0.04);
+  --glass-bg-hover:    rgba(255, 255, 255, 0.07);
+  --glass-blur:        16px;
+  --glass-border-cyan:   1px solid rgba(0, 242, 255, 0.18);
+  --glass-border-violet: 1px solid rgba(112, 0, 255, 0.22);
+
+  /* ── Bordes y Radios ── */
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
+  --border-subtle: 1px solid rgba(255, 255, 255, 0.06);
+
+  /* ── Tipografía ── */
+  --font-sans:   'Inter', system-ui, sans-serif;
+  --font-display:'Space Grotesk', 'Inter', system-ui, sans-serif;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  3.75rem;
+
+  --weight-regular:   400;
+  --weight-medium:    500;
+  --weight-semibold:  600;
+  --weight-bold:      700;
+  --weight-extrabold: 800;
+
+  /* ── Espaciado ── */
+  --section-padding-y: 6rem;
+  --section-padding-x: 1.5rem;
+  --container-max:     1200px;
+  --navbar-height:     72px;
+
+  /* ── Transiciones ── */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* ── Z-Index ── */
+  --z-navbar:   1000;   /* header siempre sobre hero, bento cards, secciones */
+  --z-fab:      1050;   /* FABs flotantes sobre el navbar */
+  --z-overlay:  1100;
+  --z-modal:    1200;
+}
